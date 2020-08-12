@@ -25,8 +25,8 @@ Route::group(['prefix' => 'admin'], function() {
   //Controller Admin\NewsController のAction addに渡す
 });
 
-//ProfileController
+//profileController
 Route::group(['prefix' => 'admin'], function() {
-  Route::get('Profile/create', 'Admin\ProfileController@add');
-  Route::get('Profile/edit', 'Admin\ProfileController@edit');
+  Route::get('profile/create', 'Admin\profileController@add');
+  Route::get('profile/edit', 'Admin\profileController@edit');
 });
