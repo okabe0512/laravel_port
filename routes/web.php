@@ -20,7 +20,7 @@ Route::get('/', function () {
 //NewsController
 Route::group(['prefix' => 'admin'], function() {
 // ['prefix' => 'admin']は http://XXX.jp/admin/ から始まるURL にしている
-  Route::get('news/create', 'Admin\NewsController@add');
+  Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
   //http://XXX.jp/admin/news/create にアクセスが来たら、
   //Controller Admin\NewsController のAction addに渡す
 });
@@ -30,3 +30,7 @@ Route::group(['prefix' => 'admin'], function() {
   Route::get('profile/create', 'Admin\profileController@add');
   Route::get('profile/edit', 'Admin\profileController@edit');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
